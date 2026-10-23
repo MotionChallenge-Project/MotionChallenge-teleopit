@@ -18,11 +18,13 @@ Use `--weights PATH --data PATH --offline` for cached artifacts.
 MuJoCo 3.17 batch is the default. Use `--jobs 8` for parallel clips;
 download and evaluation progress updates every 5 seconds.
 
-Run all frames after tracking failure: `uv run evaluate.py --termination none`.
-This records full-motion errors under a separate protocol; success still requires no failure.
 
 ## Checkpoint source
 
 [BotRunner64/Teleopit](https://github.com/BotRunner64/Teleopit/blob/f9263865c581802ad531854b8e547e2403a945f3/README.md) · [track_g1.onnx](https://huggingface.co/12e21/Teleopit-models/blob/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx). Author-released checkpoint.
 
 The adapter pins this published artifact by SHA256. Artifact identity is separate from inference parity.
+
+One `uv run evaluate.py` produces one verified `result.json`: success, completion,
+three MPBPE alignments through first failure and the same three over the full motion.
+Both scopes use the same checkpoint and source revision; no branch switching is needed.
