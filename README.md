@@ -14,3 +14,6 @@ Local weights are reused; downloads are hash-checked. Results are stored outside
 Use `--weights PATH --data PATH --offline` for cached artifacts.
 
 [Provenance](provenance.json) · [Website](https://motion-challenge-project.github.io/motion-challenge-project/)
+
+MuJoCo 3.17 batch is the default. Use `--jobs 8` for parallel clips;
+download and evaluation progress updates every 5 seconds.
