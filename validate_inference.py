@@ -20,7 +20,7 @@ def main():
     pins=json.loads((a.adapter/'native-sources.json').read_text())
     for name,expected in pins['files'].items():
         assert hashlib.sha256((a.source/name).read_bytes()).hexdigest()==expected,name
-    sys.path[:0]=[str(a.adapter.resolve()),str(a.source.resolve()),str((a.adapter/'motion-challenge/src').resolve())]
+    sys.path[:0]=[str(a.adapter.resolve()),str(a.source.resolve()),str((a.adapter/'MotionChallenge-Core/src').resolve())]
     from adapter import TeleopIT
     from motion_challenge.sdk import StatePacket, ReferenceFrame, BodyState
     from teleopit.interfaces import RobotState
@@ -39,7 +39,7 @@ def main():
     defaults=yaml.safe_load((a.source/'teleopit/configs/default.yaml').read_text())
     assert defaults['policy_hz']==50 and rt['control_period_s']==.02
     assert 'reference_velocity_smoothing_alpha' not in defaults and 'reference_anchor_velocity_smoothing_alpha' not in defaults
-    xml=a.adapter/'motion-challenge/robots/g1-29dof-cpu-v0.xml'
+    xml=a.adapter/'MotionChallenge-Core/robots/g1-29dof-cpu-v0.xml'
     builder=VelCmdObservationBuilder(dict(cfg,xml_path=str(xml.resolve()),anchor_body_name='torso_link',default_dof_pos=cfg['default_angles']))
     native=RLPolicyController({'policy_path':str(a.weights.resolve()),'device':'cpu','action_scale':cfg['action_scale'],'default_dof_pos':cfg['default_angles'],'clip_range':[-10.,10.]})
     # Same original CPU ONNX weights/provider; isolate input/state semantics from thread scheduling.
