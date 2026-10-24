@@ -34,10 +34,6 @@
   "handling": "Actual torso orientation is reconstructed by FK. Target velocities are finite differences of REFERENCE positions/orientations, not integration of actual measurements.",
   "actual_position_integration": "No explicit integration or odometry in the inspected deployed adapter source; blocked paths are listed separately.",
   "special_handling": "FK of allowed state at fixed synthetic origin (0,0,0); never actual measured origin.",
-  "new_evaluation": {
-    "status": "queued",
-    "inherited_scores": false
-  },
   "repository": "https://github.com/MotionChallenge-Project/MotionChallenge-teleopit",
   "dependency_test": {
     "path": "validation/observation-access.json",
