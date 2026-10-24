@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "cases": 160,
+  "resets": 4,
+  "max_abs_error": {
+    "observation": 1.0967254638671875e-05,
+    "history": 1.0967254638671875e-05,
+    "same_input_network": 0.0,
+    "action": 7.152557373046875e-06,
+    "target": 3.0994415283203125e-06,
+    "synthetic_target": 0.0,
+    "synthetic_history": 0.0,
+    "fixed_initial_alignment": 3.261868841697435e-08
+  },
+  "limits": {
+    "observation": 0.0002,
+    "history": 0.0002,
+    "same_input_network": 0.0,
+    "action": 0.0002,
+    "target": 0.0002,
+    "synthetic_target": 1e-06,
+    "synthetic_history": 0.0,
+    "fixed_initial_alignment": 1e-06
+  },
+  "max_abs_native_action": 3.838069438934326,
+  "source_commit": "f9263865c581802ad531854b8e547e2403a945f3",
+  "checkpoint_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+  "scope": "Pinned original TeleopIT VelCmd observation builder, reference finite differences, history reset, CPU ONNX inference, raw action history and clipped motor targets. Shared canonical robot FK; shuffled SDK joints. Offline playback default smoothing=1. Fixed initial XY/yaw transform is identity under benchmark reference initialization. Hardware, retargeting and online transport are outside this audit."
+}

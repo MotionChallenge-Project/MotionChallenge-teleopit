@@ -1,0 +1,22 @@
+{
+  "source_repository": "https://github.com/BotRunner64/Teleopit",
+  "source_commit": "f9263865c581802ad531854b8e547e2403a945f3",
+  "files": {
+    "teleopit/__init__.py": "e364931a8afff672985ee99f795e6d8b20ff33c55d71d757ec211ec6689b3c19",
+    "teleopit/controllers/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "teleopit/controllers/observation.py": "de15c2a46587ebf4faad3eeaaf1d5b97a8d3f145c160320d08ece344ff718722",
+    "teleopit/controllers/rl_policy.py": "d9ca8e486f1306d120349b9d7033f90ecdeec2fbeb4759dfdfb2a21f6f3a001f",
+    "teleopit/controllers/reference_processing.py": "d5de271c0332ac638075a8c6b186353acda92dd2e7981db33a5ceb5dd43a24bb",
+    "teleopit/math_utils.py": "4de7153d6d1ca152b549e00df8ebd7e12fe97c672750586b4acdd3272d406164",
+    "teleopit/interfaces.py": "f35fcbe64880106e6baa4e7073e7017572967ed7616d82c6f262ea9a225dc352",
+    "teleopit/constants.py": "397b1733141c37941e814e2eb3f1ac0abac1fbd27e473276426d115de766e499",
+    "teleopit/runtime/__init__.py": "4be7438a552fc4d7bc0b2a2df1b179ea3234703faec1e77a3d78892436aaef06",
+    "teleopit/runtime/common.py": "8349bf410291272e5024dbaa0dd63630c4663c59552fd7908a2b89c528d09853",
+    "teleopit/sim/reference_timeline.py": "42156f7063766cfa0da4f9b4768e01bfa7cd594106b9b1620e1e91423ddb8602",
+    "teleopit/sim/reference_motion.py": "bbe087a7a5a48dfa7dce4c492ee0651af189dbd9b19ef78a8fdf0595698a7643",
+    "teleopit/sim/runtime_components.py": "4691232bd07543fd0fabcbed6c3c733f47fa89e298cbf71374202631b6894f1f",
+    "teleopit/configs/robot/g1.yaml": "e8632b1fc2209803d278758ef3288a6e0c768da6f6fe8b1ef2c1f98bbd1ea413",
+    "teleopit/configs/controller/rl_policy.yaml": "bad2d201c7aefe893972c890db5c0bbfd33df620b447fa5f414669b2303826a4",
+    "teleopit/configs/default.yaml": "cd9d0d53bc045a2a32dbbcaab4e558a0ac53cd9a6722f9bd6940b58db0306eb9"
+  }
+}
