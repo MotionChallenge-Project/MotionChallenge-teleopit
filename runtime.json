@@ -1,13 +1,13 @@
 {
   "id": "teleopit-g1-v1",
-  "entrypoint": "adapter:create",
+  "entrypoint": "restricted:create",
   "control_period_s": 0.02,
   "reference_offsets_s": [
     0.0
   ],
   "reference_history_s": 0,
   "reference_preview_s": 0.0,
-  "state_access": "privileged-state-v0",
+  "state_access": "ideal-proprioceptive-no-position-v1",
   "action_mode": "joint-pd-feedforward",
   "weights": "checkpoints/policy.onnx",
   "weights_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx",
@@ -17,12 +17,8 @@
   "source_repository": "https://github.com/BotRunner64/Teleopit",
   "source_commit": "f9263865c581802ad531854b8e547e2403a945f3",
   "official": false,
-  "default_track": "ideal-proprioception",
-  "observation_tracks": {
-    "ideal-proprioception": {
-      "entrypoint": "restricted:create",
-      "admission_record": "admission.json",
-      "admission_sha256": "5e134834226648edcec1450bc4bdc969cb41188a4e07819cbb8edf625320199b"
-    }
+  "observation_contract": {
+    "admission_record": "admission.json",
+    "admission_sha256": "5e134834226648edcec1450bc4bdc969cb41188a4e07819cbb8edf625320199b"
   }
 }
