@@ -5,7 +5,7 @@
 ## Install and run
 
 ```bash
-git clone --recurse-submodules https://github.com/motion-challenge-project/motion-challenge-teleopit.git
+git clone --recurse-submodules https://github.com/MotionChallenge-Project/motion-challenge-teleopit.git
 cd motion-challenge-teleopit
 uv sync
 uv run evaluate.py
