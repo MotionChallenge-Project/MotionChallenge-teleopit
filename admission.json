@@ -1,0 +1,49 @@
+{
+  "schema": "MotionChallenge/observation-admission-v1",
+  "model": "teleopit",
+  "display_name": "TeleopIT G1",
+  "state_access": "ideal-proprioceptive-no-position-v1",
+  "status": "inference_verified",
+  "checkpoint_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+  "auxiliary_artifacts": {},
+  "checkpoint_origin": {
+    "author_release_url": "https://github.com/BotRunner64/Teleopit/blob/f9263865c581802ad531854b8e547e2403a945f3/README.md",
+    "author_release_label": "BotRunner64/Teleopit",
+    "kind": "author_file",
+    "kind_label": "Author-released checkpoint",
+    "artifact_page_url": "https://huggingface.co/12e21/Teleopit-models/blob/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx",
+    "original_filename": "track_g1.onnx",
+    "verification": "The adapter pins this published artifact by SHA256. Artifact identity is separate from inference parity.",
+    "download_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx",
+    "sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de"
+  },
+  "author_source": "https://github.com/BotRunner64/Teleopit",
+  "author_commit": "f9263865c581802ad531854b8e547e2403a945f3",
+  "base_adapter_commit": "cb444806ec7b7aff6eaff6dd19ebd3636799bcb9",
+  "production_source_sha256": {
+    "adapter.py": "aba5f9d447d5c86683761397ad0275d6aa2af5e7c5a01062fd642d572256daa3",
+    "evaluate.py": "0ebb8c761f00dd963f2e45c85ecb94628273911bb1edfc0f2621e8fc458cb4ff",
+    "native-sources.json": "115bdd1afec4f7613027d87710581d6954e5fd2cbb9af9d81618a2098c73ea69",
+    "policy.json": "078b79be54dbc0b7eab919cc843ac6774ef23e1c15aca01afe1c584ff6cd3c02",
+    "validate_inference.py": "ace3eb86e7211d907f91fc547ffe1a37d7875bf3a998fb48f41ea3e52fd4e777"
+  },
+  "prior_native_parity_sha256": {
+    "validation/native-parity-linux.json": "e6dc324ebfcc57f2735ada1b974df2f4ec23eef23fc7cdf95ef11ec2b2c69e57",
+    "validation/native-parity.json": "bf975f0ab03f7839643816643526b472575c67bddc23b09d5e989aab4e0ac977"
+  },
+  "handling": "Actual torso orientation is reconstructed by FK. Target velocities are finite differences of REFERENCE positions/orientations, not integration of actual measurements.",
+  "actual_position_integration": "No explicit integration or odometry in the inspected deployed adapter source; blocked paths are listed separately.",
+  "special_handling": "FK of allowed state at fixed synthetic origin (0,0,0); never actual measured origin.",
+  "new_evaluation": {
+    "status": "queued",
+    "inherited_scores": false
+  },
+  "repository": "https://github.com/MotionChallenge-Project/MotionChallenge-teleopit",
+  "dependency_test": {
+    "path": "validation/observation-access.json",
+    "sha256": "4c35943aa89d5fb1e9ec8f9ad192a3359cd7cb54cacb2af9fc1b51f396bd6f89",
+    "code": "validate_observations.py",
+    "cases": 160,
+    "resets": 4
+  }
+}

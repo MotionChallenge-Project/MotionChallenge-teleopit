@@ -16,5 +16,13 @@
   "inference_config_sha256": "078b79be54dbc0b7eab919cc843ac6774ef23e1c15aca01afe1c584ff6cd3c02",
   "source_repository": "https://github.com/BotRunner64/Teleopit",
   "source_commit": "f9263865c581802ad531854b8e547e2403a945f3",
-  "official": false
+  "official": false,
+  "default_track": "ideal-proprioception",
+  "observation_tracks": {
+    "ideal-proprioception": {
+      "entrypoint": "restricted:create",
+      "admission_record": "admission.json",
+      "admission_sha256": "5e134834226648edcec1450bc4bdc969cb41188a4e07819cbb8edf625320199b"
+    }
+  }
 }
