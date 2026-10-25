@@ -1,0 +1,100 @@
+{
+  "schema": "MotionChallenge/inference-concurrency-v1",
+  "core": "da0aec4023bbc3d29be67e1fce9fa9ab8a48c4b5",
+  "inference": {
+    "model": "teleopit",
+    "scope": "40 real LAFAN initial states, six advancing reference steps, two independent resets, reordered slots, partial reset; exact original frozen inference comparison",
+    "baseline_adapter": "https://github.com/MotionChallenge-Project/MotionChallenge-teleopit/tree/e3ea1127b19813c88dfc6bf107facae1de5654c8",
+    "candidate_source_sha256": {
+      "adapter.py": "aba5f9d447d5c86683761397ad0275d6aa2af5e7c5a01062fd642d572256daa3",
+      "parallel.py": "24f5d3b68572d209c8570f8e346ad63b158aac17a86950aebf49c397d2d234fc",
+      "validate_observations.py": "86c951c8756a7a1b0bdb7ba8ef17ab8d070210883d0235fc4c5fba801a38ae32",
+      "evaluate.py": "0ebb8c761f00dd963f2e45c85ecb94628273911bb1edfc0f2621e8fc458cb4ff",
+      "validate_inference.py": "ace3eb86e7211d907f91fc547ffe1a37d7875bf3a998fb48f41ea3e52fd4e777",
+      "restricted.py": "8f8fdcc4dc41813cf5d8f8c55e4b219310145f74a540457b52c41843a49bd831"
+    },
+    "checkpoint_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+    "records": [
+      {
+        "workers": 1,
+        "exact": true,
+        "max_abs_delta": 0.0,
+        "seconds_240_calls": [
+          0.4018046706914902,
+          0.33527493849396706
+        ],
+        "median_40_calls_s": 0.06142330076545477
+      },
+      {
+        "workers": 2,
+        "exact": true,
+        "max_abs_delta": 0.0,
+        "seconds_240_calls": [
+          0.1951524317264557,
+          0.1931556798517704
+        ],
+        "median_40_calls_s": 0.032359009298185505
+      },
+      {
+        "workers": 4,
+        "exact": true,
+        "max_abs_delta": 0.0,
+        "seconds_240_calls": [
+          0.19970102980732918,
+          0.20537050068378448
+        ],
+        "median_40_calls_s": 0.03375596087425947
+      },
+      {
+        "workers": 8,
+        "exact": true,
+        "max_abs_delta": 0.0,
+        "seconds_240_calls": [
+          0.23123843222856522,
+          0.21681541949510574
+        ],
+        "median_40_calls_s": 0.03733782097697258
+      },
+      {
+        "workers": 16,
+        "exact": true,
+        "max_abs_delta": 0.0,
+        "seconds_240_calls": [
+          0.22137386724352837,
+          0.214914258569479
+        ],
+        "median_40_calls_s": 0.03635734381775061
+      },
+      {
+        "workers": 32,
+        "exact": true,
+        "max_abs_delta": 0.0,
+        "seconds_240_calls": [
+          0.23114417865872383,
+          0.2187846265733242
+        ],
+        "median_40_calls_s": 0.03749406710267067
+      }
+    ],
+    "partial_reset_exact": true,
+    "passed": true,
+    "selected_workers": 2,
+    "selected_speedup": 1.8981823639730222
+  },
+  "closed_loop": {
+    "model": "teleopit",
+    "passed": true,
+    "scope": "all40 clips, first2 seconds, physics feedback, exact pose and metric comparison against frozen formal source",
+    "pose_samples": 4000,
+    "seconds": {
+      "baseline": 9.954077109694481,
+      "candidate": 7.264347273856401
+    },
+    "speedup": 1.3702644896284248,
+    "workers": 2,
+    "physical_cpus": "32,34,36,38,40,42,44,46",
+    "effective_scalar_workers": 2,
+    "baseline_result_sha256": "78dc5171848e452aea17ed7bd854c29fa5d06b0dd0fa409497ae503b50c3ee19",
+    "candidate_result_sha256": "afce3b251220529ffefd126b3443f6bf74fdd7e341f0a0a3049cc1782f0e066e"
+  }
+}
