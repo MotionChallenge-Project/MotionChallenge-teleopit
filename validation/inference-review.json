@@ -1,0 +1,93 @@
+{
+  "passed": true,
+  "cases": 160,
+  "resets": 4,
+  "max_abs_error": {
+    "observation": 1.0967254638671875e-05,
+    "history": 1.0967254638671875e-05,
+    "same_input_network": 0.0,
+    "action": 7.3909759521484375e-06,
+    "target": 3.2186508178710938e-06,
+    "synthetic_target": 0.0,
+    "synthetic_history": 0.0,
+    "fixed_initial_alignment": 3.261868841697435e-08
+  },
+  "limits": {
+    "observation": 0.0002,
+    "history": 0.0002,
+    "same_input_network": 0.0,
+    "action": 0.0002,
+    "target": 0.0002,
+    "synthetic_target": 1e-06,
+    "synthetic_history": 0.0,
+    "fixed_initial_alignment": 1e-06
+  },
+  "max_abs_native_action": 3.838069200515747,
+  "source_commit": "f9263865c581802ad531854b8e547e2403a945f3",
+  "checkpoint_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+  "scope": "Pinned original TeleopIT VelCmd observation builder, reference finite differences, history reset, CPU ONNX inference, raw action history and clipped motor targets. Shared canonical robot FK; shuffled SDK joints. Offline playback default smoothing=1. Fixed initial XY/yaw transform is identity under benchmark reference initialization. Hardware, retargeting and online transport are outside this audit.",
+  "review": {
+    "schema": "MotionChallenge/inference-review-v1",
+    "reviewed_at": "2026-10-27T07:41:40.030291+00:00",
+    "core_commit": "4bf520618f25f72d371117326edb01f4645eaa3f",
+    "base_adapter_commit": "a52d095db334bbbbd3adf1c0bf257bec5b8b8b59",
+    "control_hz": 50.0,
+    "reference_offsets_s": [
+      0.0
+    ],
+    "checkpoint_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+    "auxiliary_sha256": {},
+    "deployment_route": "Pinned author deployment/tracking inference, with the shared benchmark observation boundary and physics.",
+    "production_files_sha256": {
+      "adapter.py": "aba5f9d447d5c86683761397ad0275d6aa2af5e7c5a01062fd642d572256daa3",
+      "evaluate.py": "0ebb8c761f00dd963f2e45c85ecb94628273911bb1edfc0f2621e8fc458cb4ff",
+      "parallel.py": "24f5d3b68572d209c8570f8e346ad63b158aac17a86950aebf49c397d2d234fc",
+      "restricted.py": "8f8fdcc4dc41813cf5d8f8c55e4b219310145f74a540457b52c41843a49bd831"
+    },
+    "inference_config_sha256": "078b79be54dbc0b7eab919cc843ac6774ef23e1c15aca01afe1c584ff6cd3c02",
+    "comparison_script_sha256": "ace3eb86e7211d907f91fc547ffe1a37d7875bf3a998fb48f41ea3e52fd4e777",
+    "default_batch": {
+      "status": "passed",
+      "cases": 103,
+      "reset_slots": 20,
+      "max_command_abs_error": 0.0,
+      "exact": true,
+      "tolerance": 1e-05,
+      "wall_s": 0.4097184129059315,
+      "checks": [
+        "default PolicyBatch array transport",
+        "1/3/8 active slots",
+        "reordered slots",
+        "independent partial resets and seeded RNG",
+        "reference endpoint clamping",
+        "all five motor command fields"
+      ],
+      "checkpoint_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de"
+    },
+    "restricted_access": {
+      "status": "passed",
+      "cases": 160,
+      "resets": 4,
+      "tolerance_abs": 2e-05,
+      "checkpoint_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+      "network_calls": 160,
+      "max_abs_error": {
+        "observation": 0.0,
+        "network_output": 0.0,
+        "motor_command": 0.0
+      },
+      "checks": [
+        "160 matched state sequences / 4 resets",
+        "large actual translation perturbations",
+        "reference windows preserved including endpoints",
+        "all captured ONNX inputs and outputs",
+        "all PD command fields",
+        "forbidden-field counterfactual before transport"
+      ],
+      "limits": "Finite numerical regression plus source audit; not a proof against malicious code or implicit neural odometry."
+    },
+    "default_batch_script_url": "https://github.com/MotionChallenge-Project/motionchallenge/blob/2ef7ecab3b3a06bb4a53fa137de2d7f9365d6b50/tools/check_adapter_inference.py",
+    "default_batch_script_sha256": "2cb7984c27f4bbca2355ed2e05b5a48ca2e5ceb865850e1b6f2445f06b594241",
+    "scope": "Matched-input inference, observation boundary, deployment configuration and default batch path. No benchmark rollouts or scores were changed."
+  }
+}
