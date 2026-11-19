@@ -1,0 +1,32 @@
+{
+  "status": "author_release_verified",
+  "model": "teleopit",
+  "author_release_url": "https://github.com/BotRunner64/Teleopit/blob/f9263865c581802ad531854b8e547e2403a945f3/README.md",
+  "artifact_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx",
+  "sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+  "source_commit": "f9263865c581802ad531854b8e547e2403a945f3",
+  "artifact_bytes": 14077633,
+  "verified_at": "2026-11-19T05:06:36.995832+00:00",
+  "verification_scope": "Official author release link chain and complete artifact download SHA256. The downloaded bytes exactly match the original checkpoint used in the recorded evaluations. Conversion and controller parity are separately recorded; this record does not assert rollout success.",
+  "download_verification": {
+    "method": "fresh_complete_https_download_on_mac",
+    "sha256_matches_evaluated_original": true
+  },
+  "release_evidence": [
+    {
+      "url": "https://github.com/BotRunner64/Teleopit/blob/f9263865c581802ad531854b8e547e2403a945f3/scripts/setup/download_assets.py",
+      "sha256": "5781059069d1436ed7a0677b1fdcfa78bbbaec61628e85fd6c60e9bb55cf3602"
+    },
+    {
+      "url": "https://github.com/BotRunner64/Teleopit/blob/f9263865c581802ad531854b8e547e2403a945f3/teleopit/runtime/external_assets.py",
+      "sha256": "6298010cd9d10349acf57462e378986373763322811183d33d23b388f4745e77"
+    },
+    {
+      "author_declared_huggingface_repository": "12e21/Teleopit-models",
+      "author_declared_checkpoint": "checkpoints/track_g1.onnx",
+      "huggingface_revision": "94cf996444fea6894b87c28e86606cd4c2f1408f"
+    }
+  ],
+  "conversion_evidence": "mjwarp-network-parity.json",
+  "independent_onnxruntime_evidence": "onnxruntime-parity.json"
+}

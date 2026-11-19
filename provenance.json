@@ -21,5 +21,13 @@
     "sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de"
   },
   "inference_validation": "validation/native-parity.json",
-  "parity_scope": "Offline VelCmdHistory playback defaults, shared canonical robot FK, original weights on CPU ONNX Runtime; hardware, retargeting and online transport excluded. No inference changes were needed."
+  "parity_scope": "Offline VelCmdHistory playback defaults, shared canonical robot FK, original weights on CPU ONNX Runtime; hardware, retargeting and online transport excluded. No inference changes were needed.",
+  "batch_inference_validation": {
+    "original_checkpoint_origin": "validation/checkpoint-origin.json",
+    "conversion": "validation/mjwarp-network-parity.json",
+    "full_batch_network": "validation/full-batch-parity.json",
+    "full_batch_adapter": "validation/full-batch-adapter.json",
+    "observation_history_reset": "validation/tensor-observation-parity.json",
+    "independent_onnxruntime": "validation/onnxruntime-parity.json"
+  }
 }

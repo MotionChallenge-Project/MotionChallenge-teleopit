@@ -1,0 +1,17 @@
+{
+  "model": "teleopit",
+  "status": "passed",
+  "errors": [],
+  "core_commit": "2221fab60a90adc3c85b1dfd438e00244fb58263",
+  "runtime_sha256": "4308767d6425c7c25a78852a8e373c45317581dc4f3c3741b766d929c75cd594",
+  "locked_environment_and_cli": true,
+  "own_core_import": "/mnt/volumes/nexus-train-bd-ga/swd/motionchallenge-mjwarp/MotionChallenge-teleopit/MotionChallenge-Core/src/motion_challenge/__init__.py",
+  "admission_and_source_hashes": true,
+  "modules": [
+    "convert_weights",
+    "evaluate",
+    "tensor_adapter",
+    "tensor_common",
+    "torch_graph"
+  ]
+}

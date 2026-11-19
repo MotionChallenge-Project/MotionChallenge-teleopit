@@ -1,0 +1,29 @@
+{
+  "id": "teleopit-g1-v1",
+  "control_period_s": 0.02,
+  "reference_offsets_s": [
+    0.0
+  ],
+  "reference_history_s": 0,
+  "reference_preview_s": 0.0,
+  "state_access": "proprioceptive-no-position-no-linear-velocity-v1",
+  "action_mode": "joint-pd-feedforward",
+  "weights": "checkpoints/policy.onnx",
+  "weights_url": "https://huggingface.co/12e21/Teleopit-models/resolve/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx",
+  "weights_sha256": "1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de",
+  "inference_config": "policy.json",
+  "inference_config_sha256": "078b79be54dbc0b7eab919cc843ac6774ef23e1c15aca01afe1c584ff6cd3c02",
+  "source_repository": "https://github.com/BotRunner64/Teleopit",
+  "source_commit": "f9263865c581802ad531854b8e547e2403a945f3",
+  "official": false,
+  "observation_contract": {
+    "admission_record": "admission.mjwarp.json",
+    "admission_sha256": "f534abd8cb0ce6b22bcd4d0f0132ac37ef227dbd8cc9b22dba1b240907e277c5"
+  },
+  "migration_status": "inference_verified",
+  "tensor_conversion": "convert_weights:prepare",
+  "tensor_outputs": [
+    "actions"
+  ],
+  "tensor_entrypoint": "tensor_adapter:TensorTeleopIT"
+}

@@ -1,29 +1,39 @@
-# TeleopIT G1
+# TeleopIT
 
-[Author project](https://github.com/BotRunner64/Teleopit) · [Checkpoint](https://huggingface.co/12e21/Teleopit-models/blob/94cf996444fea6894b87c28e86606cd4c2f1408f/checkpoints/track_g1.onnx) · [Provenance](provenance.json)
+GPU batch evaluation of the released TeleopIT checkpoint on LAFAN and BONES-SEED.
 
-## Install and run
+## Run
 
 ```bash
 git clone --recurse-submodules https://github.com/MotionChallenge-Project/MotionChallenge-teleopit.git
 cd MotionChallenge-teleopit
-uv sync
-uv run evaluate.py
+uv sync --locked
+uv run evaluate.py --dataset lafan --data /path/to/lafan --device cuda:0 --output /path/to/results/teleopit-lafan
+uv run evaluate.py --dataset seed --data /path/to/g1.tar.gz --device cuda:0 --output /path/to/results/teleopit-seed
 ```
 
-One full rollout per motion produces success, completion and all six MPBPE values
-in one verified `result.json`. Tuned inference defaults; CPU slots scale with
-available cores. `--jobs N` overrides the slots. Progress updates every five seconds.
+Download original [LAFAN](https://huggingface.co/datasets/lvhaidong/LAFAN1_Retargeting_Dataset) or [BONES-SEED](https://huggingface.co/datasets/bones-studio/seed) data and accept the upstream terms. The LAFAN directory contains `g1/*.csv`. The SEED archive is selected by Core's single public inclusion list. Motion data stays local.
 
-Missing data and weights are downloaded and hash-checked. Cached files can be
-selected with `--weights PATH --data PATH --offline`. Results and traces stay
-outside Git.
+The command downloads and verifies the original model weights, converts them to safetensors plus a PyTorch execution graph, evaluates the complete selected dataset, and independently verifies the recorded trajectories. Use a fresh output directory for each run.
 
-This repository adapts model inference. The pinned root `MotionChallenge-Core`
-submodule owns datasets, physics, metrics and verification. See `--help` for options.
+```bash
+uv run evaluate.py --dataset lafan --data /path/to/lafan --weights /path/to/original-checkpoint --offline --device cuda:0 --output /path/to/results/teleopit-lafan
+```
 
-Author inference checks: [script](validate_inference.py), [source pins](native-sources.json), [report](validation/native-parity.json).
+LAFAN uses 40 simulation slots and SEED uses 4096. Each control step runs one full-batch network forward. Finished slots are refilled in longest-motion-first order. `--slots` selects a different capacity. `--cache` sets the local preparation and model conversion cache.
 
-## Observations
+## Evaluation contract
 
-Ideal proprioception, without robot world-position or contact feedback. [Checkpoint requirements](admission.json) · [Rules](https://github.com/MotionChallenge-Project/MotionChallenge-Core/blob/da0aec4023bbc3d29be67e1fce9fa9ab8a48c4b5/docs/OBSERVATIONS.md).
+The control period is 20 ms with four 5 ms physics substeps. Sliding friction is 1.0 and the Newton solver uses at most 50 iterations. Core precomputes scoring reference FK before rollout and reads actual body poses from MJWarp.
+
+Policies receive joint positions and velocities, root orientation, angular velocity, and root/joint reference motion. Actual global position and actual linear velocity are unavailable. Model-specific reference features and policy history are maintained by this repository.
+
+The original checkpoint SHA256 is `1ebd341d9193e1c49a986450f6043ba1a9473ad46636ce0bcb1c7755c856e0de`. `runtime.mjwarp.json` specifies its source, input configuration, observation contract and conversion entrypoint.
+
+## Validation
+
+`validation/mjwarp-network-parity.json` records original ONNX versus PyTorch batch parity. `validation/full-batch-parity.json` records a 4096-sample forward and original ONNX row checks. `validation/tensor-observation-parity.json` records original observation/history/reset and PD-target parity.
+
+Each evaluation writes `result.json`, trace files, input hashes and `verification.json`. Dataset scores require full motion coverage and independent trace verification.
+
+`validation/full-batch-adapter.json` verifies 4096 active adapter states, a full forward and partial resets. `validation/onnxruntime-parity.json` checks the original ONNX in an independent ONNX Runtime environment.

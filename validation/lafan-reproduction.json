@@ -1,0 +1,68 @@
+{
+  "result_sha256": "215ac0012b6e27077ec0381d9b7b52a7cd8433cd332f4958c17099214346aacb",
+  "protocol_sha256": "940b7b6e059959c17f8ad092ccc7538d217a02f368fc9c00ad7c15f2b07713a9",
+  "runtime_sha256": "4308767d6425c7c25a78852a8e373c45317581dc4f3c3741b766d929c75cd594",
+  "summary": {
+    "success_count": 22,
+    "completion": 0.7748899654924386,
+    "full": {
+      "mpjpe_world_m": 1.7929609064925274,
+      "mpjpe_xy_aligned_m": 0.14954602652627863,
+      "mpjpe_xy_yaw_aligned_m": 0.13689151261196592,
+      "joint_mae_rad": 0.153174062382344,
+      "anchor_height_error_m": 0.10168228119208675,
+      "anchor_gravity_z_error": 0.17192484862232296
+    },
+    "prefix": {
+      "mpjpe_world_m": 1.3831563988022502,
+      "mpjpe_xy_aligned_m": 0.05312813783720891,
+      "mpjpe_xy_yaw_aligned_m": 0.05194224569014132,
+      "joint_mae_rad": 0.11831281909600548,
+      "anchor_height_error_m": 0.022562913740649154,
+      "anchor_gravity_z_error": 0.027597027522599175
+    }
+  },
+  "verification": {
+    "verification": "independent_cpu_trace_recomputation_passed",
+    "clips": 40,
+    "verifier_sha256": "822098272459bd44d65eb365cb0df9a5f3492410f63ab11cf055669b3a52237a",
+    "max_metric_abs_error": 2.105795382512099e-08,
+    "result_sha256": "215ac0012b6e27077ec0381d9b7b52a7cd8433cd332f4958c17099214346aacb",
+    "scope": "Trace consistency only; a separate clean rerun is still required"
+  },
+  "workflow": "Independent locked uv environment and model-owned Core; empty evaluation cache; evaluate.py verifies explicitly supplied original weights, converts, prepares original LAFAN, evaluates 40 slots and independently verifies traces offline",
+  "installed_environment": {
+    "model": "teleopit",
+    "root": "/mnt/volumes/nexus-train-bd-ga/swd/motionchallenge-mjwarp/MotionChallenge-teleopit",
+    "environment": "/tmp/motionchallenge-envs/teleopit",
+    "status": "locked_independent_environment_and_cli_verified",
+    "packages": 45,
+    "core_commit": "dbe13af14b4da5670590852b20e75fbcd509c413"
+  },
+  "core_commit": "dbe13af14b4da5670590852b20e75fbcd509c413",
+  "uv_lock_sha256": "2ede9796e663f95f786b869f68df753fc85558f2b4aa37908bab484271c2f350",
+  "command": [
+    "/tmp/motionchallenge-envs/teleopit/bin/python",
+    "evaluate.py",
+    "--dataset",
+    "lafan",
+    "--data",
+    "/mnt/volumes/nexus-train-bd-ga/swd/motion-challenge/cache/datasets/lafan",
+    "--data-format",
+    "original",
+    "--cache",
+    "/mnt/volumes/nexus-train-bd-ga/swd/motionchallenge-mjwarp/reproduction-cache/teleopit-independent-001",
+    "--output",
+    "/mnt/volumes/nexus-train-bd-ga/swd/motionchallenge-mjwarp/runs/teleopit-lafan-independent-001",
+    "--weights",
+    "/mnt/volumes/nexus-train-bd-ga/swd/motion-challenge/cache/checkpoints-expansion15/teleopit/track_g1.onnx",
+    "--offline",
+    "--device",
+    "cuda:1",
+    "--slots",
+    "40",
+    "--verify-jobs",
+    "8"
+  ],
+  "numeric_scope": "Full independent pipeline and CPU trace consistency; repeated rollouts are not asserted bitwise identical"
+}
